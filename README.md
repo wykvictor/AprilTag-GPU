@@ -1,3 +1,39 @@
+#### Building on Windows Visual Studio
+##### Prerequisites
+* Install Visual Studio 2013:
+  
+  **Note**: `Visual Studio Express` and `Visual Studio 2015` are not supported!(I tried but not work ^_^)
+
+  [Nvidia reference](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-microsoft-windows/index.html#axzz44vwAc5Qx)
+
+* Install Cuda 7.5:
+  Also refer to above link. [download](https://developer.nvidia.com/cuda-downloads)
+
+* Install CMake:
+  The latest version is OK. [download](https://cmake.org/) 
+
+* Install OpenCV:
+  I installed 3.1, other versions should also work. [download](http://opencv.org/)
+  * Run the EXE to extract the files. This EXE does not have an installer. Instead, you put your files where you want, and then add an environment variable
+  * Adding the environment variable named "OpenCV_DIR" (no quotes) to the "build" subfolder in the folder where you extracted.(The exact folder you need will have one very important file in it: OpenCVConfig.cmake - this tells CMake which variables to set for you.)
+  * Add a dir of "OpenCV binary DLLs" to Windows $PATH.(like f:/software/opencv/build/x64/vc12/bin)
+
+##### Compile the solution
+* Use the cmake-gui tool:
+
+  Open the cmake-gui tool and selete the location of **Source and Build**.
+  Then press configure to specify the generator: In this case, it's **Visual Studio 12 2013 Win64**.
+  Last, press generate.
+
+* Use the cmake command line:
+
+  mkdir build && cd build/ && cmake -G "Visual Studio 12 2013 Win64"
+
+**Done!** Just use Visual Studio to open the project-solution in dir build/ and compile everything.
+
+=======
+### Original README.md 
+
 AprilTags library
 
 Detect April tags (2D bar codes) in images; reports unique ID of each
