@@ -2,7 +2,8 @@
 ##### Prerequisites
 * Install Visual Studio 2013:
   
-  **Note**: `Visual Studio Express` and `Visual Studio 2015` are not supported!(I tried but not work ^_^)
+  **Note**: `Visual Studio Express` and `Visual Studio 2015` are not supported! 
+  Update(2016.6): Now CUDA 8 RC could support VS2015 Update 1
 
   [Nvidia reference](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-microsoft-windows/index.html#axzz44vwAc5Qx)
 
@@ -17,6 +18,8 @@
   * Run the EXE to extract the files. This EXE does not have an installer. Instead, you put your files where you want, and then add an environment variable
   * Adding the environment variable named "OpenCV_DIR" (no quotes) to the "build" subfolder in the folder where you extracted.(The exact folder you need will have one very important file in it: OpenCVConfig.cmake - this tells CMake which variables to set for you.)
   * Add a dir of "OpenCV binary DLLs" to Windows $PATH.(like f:/software/opencv/build/x64/vc12/bin)
+  * If we run CUDA build, Opencv should be recompiled with CUDA options on, as the pre-built version does not support CUDA functions. Options suggested:
+    * -DWITH_CUDA=ON -DBUILD_DOCS=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_WITH_STATIC_CRT=OFF -DBUILD_opencv_apps=OFF -DWITH_TBB=ON -DWITH_OPENMP=ON -DWITH_IPP=ON
 
 ##### Compile the solution
 * Use the cmake-gui tool:
