@@ -27,7 +27,7 @@ endif()
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 set(DEPENDENCIES ${OpenCV_LIBS})
-link_directories(${OpenCV_LIB_DIR})
+link_directories(${OpenCV_LIB_DIR})  # we can put some libs in it for linking
 if (NOT USE_CUDA) # OpenCV may set CUDA_FOUND to true
   unset(CUDA_FOUND)
 endif()
