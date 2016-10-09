@@ -17,7 +17,7 @@ if (USE_CUDA)
   if (CUDA_FOUND)
     set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -Xcompiler=\"/FS\" --gpu-architecture=compute_20 --gpu-code=compute_20,sm_20,sm_52")
     set(CUDA_NVCC_FLAGS_RELEASE "${CUDA_NVCC_FLAGS_RELEASE} -O3")
-    add_definitions(-DHAVE_CUDA)
+    add_definitions(-DHAVE_CUDA)  # used in src code to control workflow
     set(CUDA_ATTACH_VS_BUILD_RULE_TO_CUDA_FILE OFF)
   else(CUDA_FOUND)
     message("CUDA is not installed on this system.")
@@ -70,4 +70,3 @@ endif()
 
 include_directories(include)
 add_subdirectory(src)
-add_subdirectory(PInvokeExample)
